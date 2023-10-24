@@ -1,12 +1,15 @@
 import CarList from 'components/CarList/CarList';
-import NavBar from 'components/NavBar';
+import NavBar from 'components/NavBar/NavBar';
 import React from 'react';
+import { MainContainer } from 'styles/GlobalStyles';
 
 const Catalog = () => {
   return (
     <>
-      <NavBar />
-      <CarList />
+      <MainContainer>
+        <NavBar />
+        <CarList />
+      </MainContainer>
     </>
   );
 };

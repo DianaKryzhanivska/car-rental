@@ -1,11 +1,14 @@
-import NavBar from 'components/NavBar';
+import NavBar from 'components/NavBar/NavBar';
 import React from 'react';
+import { MainContainer } from 'styles/GlobalStyles';
 
 const Home = () => {
   return (
     <>
-      <NavBar />
-      <hr />
+      <MainContainer>
+        <NavBar />
+        <hr />
+      </MainContainer>
     </>
   );
 };

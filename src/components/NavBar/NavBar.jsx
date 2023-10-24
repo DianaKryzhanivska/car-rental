@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyledNavLink } from './NavBar.styled';
+import { NavList, NavWrapper, StyledNavLink } from './NavBar.styled';
 
 const NavBar = () => {
   return (
-    <>
+    <NavWrapper>
       <nav>
-        <ul>
+        <NavList>
           <li>
             <StyledNavLink to="/">Home</StyledNavLink>
           </li>
@@ -15,9 +15,9 @@ const NavBar = () => {
           <li>
             <StyledNavLink to="/favorites">Favorites</StyledNavLink>
           </li>
-        </ul>
+        </NavList>
       </nav>
-    </>
+    </NavWrapper>
   );
 };
 

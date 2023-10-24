@@ -1,10 +1,13 @@
-import NavBar from 'components/NavBar';
+import NavBar from 'components/NavBar/NavBar';
 import React from 'react';
+import { MainContainer } from 'styles/GlobalStyles';
 
 const Favorites = () => {
   return (
     <>
-      <NavBar />
+      <MainContainer>
+        <NavBar />
+      </MainContainer>
     </>
   );
 };

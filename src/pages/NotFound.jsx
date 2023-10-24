@@ -1,13 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { MainContainer } from 'styles/GlobalStyles';
 
 const NotFound = () => {
   return (
     <>
-      <div>This is page NotFound</div>
-      <p>
-        You can go to <NavLink to={'/'}>home</NavLink>
-      </p>
+      <MainContainer>
+        <div>This is page NotFound</div>
+        <p>
+          You can go to <NavLink to={'/'}>home</NavLink>
+        </p>
+      </MainContainer>
     </>
   );
 };

@@ -30,6 +30,7 @@ const CarList = ({ carItem }) => {
   const error = useSelector(selectError);
 
   const imgNotFound = 'https://placekitten.com/g/185/280';
+  // const imgNotFound = '../../img/placeholder.png';
 
   const handleLoadMore = () => {
     setPage(page + 1);
@@ -66,7 +67,7 @@ const CarList = ({ carItem }) => {
               <CarSecondaryInfo>
                 <p>{`Ukraine | ${car.rentalCompany} | ${car.type} | ${car.id}`}</p>
               </CarSecondaryInfo>
-              <LearnMoreBtn type="button" onClick={() => open(carItem)}>
+              <LearnMoreBtn type="button" onClick={() => open(car)}>
                 Learn more
               </LearnMoreBtn>
             </CarItem>
@@ -80,7 +81,7 @@ const CarList = ({ carItem }) => {
       </LoadMoreBtn>
       {isOpen && (
         <Modal close={close}>
-          <SingleCarItem carItem={data} close={close} />
+          <SingleCarItem carItem={data} close={close} car={data} />
         </Modal>
       )}
     </>
