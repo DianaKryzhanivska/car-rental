@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { StyledNavLink } from './NavBar.styled';
 
 const NavBar = () => {
   return (
@@ -7,13 +7,13 @@ const NavBar = () => {
       <nav>
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <StyledNavLink to="/">Home</StyledNavLink>
           </li>
           <li>
-            <NavLink to="/catalog">Catalog</NavLink>
+            <StyledNavLink to="/catalog">Catalog</StyledNavLink>
           </li>
           <li>
-            <NavLink to="/favorites">Favorites</NavLink>
+            <StyledNavLink to="/favorites">Favorites</StyledNavLink>
           </li>
         </ul>
       </nav>

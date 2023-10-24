@@ -52,6 +52,11 @@ export const LearnMoreBtn = styled.button`
   color: #fff;
   background: #3470ff;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background: #0b44cd;
+  }
 `;
 
 export const LoadMoreBtn = styled.button`
@@ -70,4 +75,9 @@ export const LoadMoreBtn = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: #0b44cd;
+  }
 `;

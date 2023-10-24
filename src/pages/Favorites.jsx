@@ -1,7 +1,12 @@
+import NavBar from 'components/NavBar';
 import React from 'react';
 
 const Favorites = () => {
-  return <div>This is favorites page</div>;
+  return (
+    <>
+      <NavBar />
+    </>
+  );
 };
 
 export default Favorites;

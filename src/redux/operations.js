@@ -7,9 +7,14 @@ export const carRentalApi = axios.create({
 
 export const fetchAllCars = createAsyncThunk(
   'adverts/fetchAll',
-  async (_, thunkApi) => {
+  async ({ page, limit }, thunkApi) => {
     try {
-      const { data } = await carRentalApi.get('/adverts');
+      const { data } = await carRentalApi.get('/adverts', {
+        params: {
+          page,
+          limit,
+        },
+      });
       console.log(data);
       return data;
     } catch (error) {

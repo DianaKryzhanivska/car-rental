@@ -1,10 +1,11 @@
 import CarList from 'components/CarList/CarList';
+import NavBar from 'components/NavBar';
 import React from 'react';
 
 const Catalog = () => {
   return (
     <>
-      <div>This is catalog page</div>
+      <NavBar />
       <CarList />
     </>
   );

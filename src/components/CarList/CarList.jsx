@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllCars } from 'redux/operations';
 import { selectError, selectIsLoading, selectItems } from 'redux/selectors';
@@ -10,13 +10,20 @@ import {
   LearnMoreBtn,
   LoadMoreBtn,
 } from './CarList.styled';
+import Modal from 'components/Modal/Modal';
+import useModal from 'hooks/useModal';
+import SingleCarItem from 'components/SingleCarItem/SingleCarItem';
 
-const CarList = () => {
+const CarList = ({ carItem }) => {
+  const { open, close, isOpen, data } = useModal();
+
   const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
+  const limit = 8;
 
   useEffect(() => {
-    dispatch(fetchAllCars());
-  }, [dispatch]);
+    dispatch(fetchAllCars({ page, limit }));
+  }, [dispatch, page, limit]);
 
   const cars = useSelector(selectItems);
   const isLoading = useSelector(selectIsLoading);
@@ -24,9 +31,12 @@ const CarList = () => {
 
   const imgNotFound = 'https://placekitten.com/g/185/280';
 
+  const handleLoadMore = () => {
+    setPage(page + 1);
+  };
+
   return (
     <>
-      <div>This is CarList</div>
       {isLoading && <p>Loading...</p>}
       {error && <p>Error happened</p>}
       <CarGallery>
@@ -34,7 +44,7 @@ const CarList = () => {
           cars.map(car => (
             <CarItem key={car.id}>
               <img
-                src={car.img}
+                src={car.img || car.photoLink}
                 alt={car.model}
                 width={274}
                 height={268}
@@ -54,16 +64,25 @@ const CarList = () => {
                 <p>{car.rentalPrice}</p>
               </CarMainInfo>
               <CarSecondaryInfo>
-                <p>{`Ukraine ${car.rentalCompany} | ${car.type} | ${car.id}`}</p>
+                <p>{`Ukraine | ${car.rentalCompany} | ${car.type} | ${car.id}`}</p>
               </CarSecondaryInfo>
-              <LearnMoreBtn type="button">Learn more</LearnMoreBtn>
+              <LearnMoreBtn type="button" onClick={() => open(carItem)}>
+                Learn more
+              </LearnMoreBtn>
             </CarItem>
           ))
         ) : (
           <p>No data available</p>
         )}
       </CarGallery>
-      <LoadMoreBtn type="button">Load more</LoadMoreBtn>
+      <LoadMoreBtn type="button" onClick={handleLoadMore}>
+        Load more
+      </LoadMoreBtn>
+      {isOpen && (
+        <Modal close={close}>
+          <SingleCarItem carItem={data} close={close} />
+        </Modal>
+      )}
     </>
   );
 };
