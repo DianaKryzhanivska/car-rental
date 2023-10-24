@@ -64,9 +64,9 @@ const CarList = ({ carItem }) => {
                 </p>
                 <p>{car.rentalPrice}</p>
               </CarMainInfo>
-              <CarSecondaryInfo>
-                <p>{`Ukraine | ${car.rentalCompany} | ${car.type} | ${car.id}`}</p>
-              </CarSecondaryInfo>
+              <div>
+                <CarSecondaryInfo>{`Ukraine | ${car.rentalCompany} | ${car.type} | ${car.id}`}</CarSecondaryInfo>
+              </div>
               <LearnMoreBtn type="button" onClick={() => open(car)}>
                 Learn more
               </LearnMoreBtn>

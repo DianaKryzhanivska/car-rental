@@ -30,7 +30,7 @@ export const CarMainInfo = styled.div`
   }
 `;
 
-export const CarSecondaryInfo = styled.div`
+export const CarSecondaryInfo = styled.p`
   /* height: 40px; */
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;

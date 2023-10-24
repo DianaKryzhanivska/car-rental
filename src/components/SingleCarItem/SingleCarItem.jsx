@@ -1,10 +1,21 @@
 import React from 'react';
 import placeholder from '../../img/placeholder.png';
-import { ModalContainer, RentalLink } from './SingleCarItem.styled';
+import {
+  CarDescription,
+  CarName,
+  CarSecondaryInfo,
+  CarSubtitle,
+  ModalContainer,
+  RentText,
+  RentWrapper,
+  RentalLink,
+} from './SingleCarItem.styled';
 
 const SingleCarItem = ({ car, close }) => {
   const imgNotFound = 'https://placekitten.com/g/185/280';
   // const imgNotFound = '../../img/placeholder.png';
+
+  const rentalConditions = car.rentalConditions.split('\n');
 
   return (
     <>
@@ -14,24 +25,40 @@ const SingleCarItem = ({ car, close }) => {
           alt={car.model}
           width={461}
           height={248}
-          style={{ objectFit: 'cover', borderRadius: '12px' }}
+          style={{
+            objectFit: 'cover',
+            borderRadius: '14px',
+            marginBottom: '14px',
+          }}
           onError={e => {
             e.currentTarget.src = imgNotFound;
           }}
         />
-        <h2>
+        <CarName>
           {`${car.make}`} <span>{car.model}</span>
           {`, ${car.year}`}
-        </h2>
+        </CarName>
         <div>
-          <p>{`Ukraine | ${car.rentalCompany} | ${car.type} | ${car.id}`}</p>
+          <CarSecondaryInfo>{`Ukraine | ${car.rentalCompany} | ${car.type} | ${car.id}`}</CarSecondaryInfo>
         </div>
-        <p>{car.description}</p>
-        <h3>Accessories and functionalities:</h3>
-        <p>{`${car.accessories}`}</p>
-        <h3>Rental Conditions:</h3>
-        <p>{car.rentalConditions}</p>
-        <RentalLink href="https://uk-ua.facebook.com/">Rental car</RentalLink>
+        <CarDescription>{car.description}</CarDescription>
+        <CarSubtitle>Accessories and functionalities:</CarSubtitle>
+        <CarSecondaryInfo style={{ marginBottom: '24px', width: '461px' }}>
+          {car.accessories.join(' | ')}
+        </CarSecondaryInfo>
+        <CarSubtitle>Rental Conditions:</CarSubtitle>
+        <RentWrapper>
+          {rentalConditions.map((condition, index) => (
+            <RentText key={index}>{condition}</RentText>
+          ))}
+          <RentText>
+            {`Mileage: `} <span>{car.mileage}</span>
+          </RentText>
+          <RentText>
+            {`Price: `} <span>{car.rentalPrice}</span>
+          </RentText>
+        </RentWrapper>
+        <RentalLink href="tel:+123456789012">Rental car</RentalLink>
       </ModalContainer>
     </>
   );

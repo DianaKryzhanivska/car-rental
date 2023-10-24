@@ -19,7 +19,7 @@ body {
 }
 
 p:last-child {
-  margin-bottom: 0;
+  /* margin-bottom: 0; */
 }
 
 ul {
