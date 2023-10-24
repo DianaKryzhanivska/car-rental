@@ -12,6 +12,19 @@ export const CarItem = styled.li`
   width: 274px;
   height: 426px;
   border: 1px solid gray;
+  position: relative;
+`;
+
+export const AddToFavBtn = styled.button`
+  /* width: 28px;
+  height: 28px; */
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 14px;
+  right: 14px;
 `;
 
 export const CarMainInfo = styled.div`

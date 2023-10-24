@@ -15,5 +15,8 @@
     <symbol id="heart_normal" viewBox="0 0 32 32">
       <path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.667" d="M27.787 6.147a7.345 7.345 0 0 0-5.187-2.15 7.33 7.33 0 0 0-5.187 2.15L16 7.56l-1.413-1.413a7.333 7.333 0 0 0-10.374 0 7.333 7.333 0 0 0 0 10.374L16 28.308l11.787-11.787a7.345 7.345 0 0 0 2.15-5.187 7.33 7.33 0 0 0-2.15-5.187z" style="stroke:var(--color2, #fff)"/>
     </symbol>
+     <symbol id="heart" viewBox="0 0 36 32">
+      <path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M31.26 4.915a8.244 8.244 0 0 0-5.835-2.417 8.264 8.264 0 0 0-5.835 2.417L18 6.505l-1.59-1.59a8.25 8.25 0 0 0-11.67 0 8.25 8.25 0 0 0 0 11.67L18 29.845l13.26-13.26a8.26 8.26 0 0 0 2.417-5.835 8.245 8.245 0 0 0-2.417-5.835z" style="stroke:var(--color1, #fff)"/>
+    </symbol>
   </defs>
 </svg>

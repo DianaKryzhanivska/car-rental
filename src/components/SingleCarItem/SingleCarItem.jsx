@@ -58,7 +58,7 @@ const SingleCarItem = ({ car, close }) => {
             {`Price: `} <span>{car.rentalPrice}</span>
           </RentText>
         </RentWrapper>
-        <RentalLink href="tel:+123456789012">Rental car</RentalLink>
+        <RentalLink href="tel:+380730000000">Rental car</RentalLink>
       </ModalContainer>
     </>
   );
