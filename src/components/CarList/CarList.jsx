@@ -16,13 +16,14 @@ import useModal from 'hooks/useModal';
 import SingleCarItem from 'components/SingleCarItem/SingleCarItem';
 import sprite from '../../img/sprite.svg';
 import { addToFavorites } from 'redux/favorites/slice';
+import { selectFavoriteCars } from 'redux/favorites/selectors';
 
-const CarList = ({ carItem }) => {
+const CarList = () => {
   const { open, close, isOpen, data } = useModal();
 
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
-  const limit = 8;
+  const limit = 12;
 
   useEffect(() => {
     dispatch(fetchAllCars({ page, limit }));
@@ -35,8 +36,13 @@ const CarList = ({ carItem }) => {
   const imgNotFound = 'https://placekitten.com/g/185/280';
   // const imgNotFound = '../../img/placeholder.png';
 
+  const favoriteCars = useSelector(selectFavoriteCars);
+
   const handleAddToFavClick = car => {
-    dispatch(addToFavorites(car));
+    const isAlreadyInFav = favoriteCars.some(favCar => favCar.id === car.id);
+    if (!isAlreadyInFav) {
+      dispatch(addToFavorites(car));
+    }
   };
 
   const handleLoadMore = () => {
@@ -49,44 +55,56 @@ const CarList = ({ carItem }) => {
       {error && <p>Error happened</p>}
       <CarGallery>
         {cars?.length > 0 ? (
-          cars.map(car => (
-            <CarItem key={car.id}>
-              <img
-                src={car.img || car.photoLink}
-                alt={car.model}
-                width={274}
-                height={268}
-                style={{
-                  objectFit: 'cover',
-                  borderRadius: '14px',
-                  marginBottom: '14px',
-                }}
-                onError={e => {
-                  e.currentTarget.src = imgNotFound;
-                }}
-              />
-              <AddToFavBtn
-                type="button"
-                onClick={() => handleAddToFavClick(car)}
-              >
-                <svg width={18} height={18}>
-                  <use href={`${sprite}#heart`} />
-                </svg>
-              </AddToFavBtn>
-              <CarMainInfo>
-                <p>
-                  {`${car.make}`} <span>{car.model}</span> {`${car.year}`}
-                </p>
-                <p>{car.rentalPrice}</p>
-              </CarMainInfo>
-              <div>
-                <CarSecondaryInfo>{`Ukraine | ${car.rentalCompany} | ${car.type} | ${car.id}`}</CarSecondaryInfo>
-              </div>
-              <LearnMoreBtn type="button" onClick={() => open(car)}>
-                Learn more
-              </LearnMoreBtn>
-            </CarItem>
-          ))
+          cars.map(car => {
+            const isAlreadyInFav = favoriteCars.some(
+              favCar => favCar.id === car.id
+            );
+
+            return (
+              <CarItem key={car.id}>
+                <img
+                  src={car.img || car.photoLink}
+                  alt={car.model}
+                  width={274}
+                  height={268}
+                  style={{
+                    objectFit: 'cover',
+                    borderRadius: '14px',
+                    marginBottom: '14px',
+                  }}
+                  onError={e => {
+                    e.currentTarget.src = imgNotFound;
+                  }}
+                />
+                <AddToFavBtn
+                  type="button"
+                  onClick={() => handleAddToFavClick(car)}
+                >
+                  {isAlreadyInFav ? (
+                    <svg width={18} height={18}>
+                      <use href={`${sprite}#heart_active`} />
+                    </svg>
+                  ) : (
+                    <svg width={18} height={18}>
+                      <use href={`${sprite}#heart`} />
+                    </svg>
+                  )}
+                </AddToFavBtn>
+                <CarMainInfo>
+                  <p>
+                    {`${car.make}`} <span>{car.model}</span> {`${car.year}`}
+                  </p>
+                  <p>{car.rentalPrice}</p>
+                </CarMainInfo>
+                <div>
+                  <CarSecondaryInfo>{`Ukraine | ${car.rentalCompany} | ${car.type} | ${car.id}`}</CarSecondaryInfo>
+                </div>
+                <LearnMoreBtn type="button" onClick={() => open(car)}>
+                  Learn more
+                </LearnMoreBtn>
+              </CarItem>
+            );
+          })
         ) : (
           <p>No data available</p>
         )}

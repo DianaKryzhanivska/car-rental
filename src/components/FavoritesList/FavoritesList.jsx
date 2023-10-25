@@ -51,7 +51,7 @@ const FavoritesList = () => {
                 onClick={() => handleRemoveFromFav(car.id)}
               >
                 <svg width={18} height={18}>
-                  <use href={`${sprite}#heart`} />
+                  <use href={`${sprite}#heart_active`} />
                 </svg>
               </RemoveFromFavBtn>
               <CarMainInfo>
