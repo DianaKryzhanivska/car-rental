@@ -16,6 +16,9 @@ const SingleCarItem = ({ car, close }) => {
   // const imgNotFound = '../../img/placeholder.png';
 
   const rentalConditions = car.rentalConditions.split('\n');
+  const formattedMileage = car.mileage
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
   return (
     <>
@@ -52,7 +55,7 @@ const SingleCarItem = ({ car, close }) => {
             <RentText key={index}>{condition}</RentText>
           ))}
           <RentText>
-            {`Mileage: `} <span>{car.mileage}</span>
+            {`Mileage: `} <span>{formattedMileage}</span>
           </RentText>
           <RentText>
             {`Price: `} <span>{car.rentalPrice}</span>
