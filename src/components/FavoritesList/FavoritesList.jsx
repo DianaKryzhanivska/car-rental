@@ -14,6 +14,7 @@ import { RemoveFromFavBtn } from './FavoritesList.styled';
 import useModal from 'hooks/useModal';
 import Modal from 'components/Modal/Modal';
 import SingleCarItem from 'components/SingleCarItem/SingleCarItem';
+import placeholder from '../../img/placeholder.png';
 
 const FavoritesList = () => {
   const { open, close, isOpen, data } = useModal();
@@ -23,7 +24,7 @@ const FavoritesList = () => {
     dispatch(removeFromFavorites(carId));
   };
 
-  const imgNotFound = 'https://placekitten.com/g/185/280';
+  // const imgNotFound = 'https://placekitten.com/g/185/280';
   // const imgNotFound = '../../img/placeholder.png';
 
   return (
@@ -43,7 +44,7 @@ const FavoritesList = () => {
                   marginBottom: '14px',
                 }}
                 onError={e => {
-                  e.currentTarget.src = imgNotFound;
+                  e.currentTarget.src = placeholder;
                 }}
               />
               <RemoveFromFavBtn

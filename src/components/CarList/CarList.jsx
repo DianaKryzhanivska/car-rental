@@ -17,6 +17,8 @@ import SingleCarItem from 'components/SingleCarItem/SingleCarItem';
 import sprite from '../../img/sprite.svg';
 import { addToFavorites, removeFromFavorites } from 'redux/favorites/slice';
 import { selectFavoriteCars } from 'redux/favorites/selectors';
+import placeholder from '../../img/placeholder.png';
+import Filter from 'components/Filter/Filter';
 
 const CarList = () => {
   const { open, close, isOpen, data } = useModal();
@@ -25,15 +27,27 @@ const CarList = () => {
   const [page, setPage] = useState(1);
   const limit = 12;
 
+  const [filteredData, setFilteredData] = useState({
+    selectedBrand: null,
+    selectedPrice: null,
+    minMileage: '',
+    maxMileage: '',
+  });
+
   useEffect(() => {
-    dispatch(fetchAllCars({ page, limit }));
-  }, [dispatch, page, limit]);
+    dispatch(fetchAllCars({ page, limit, filteredData }));
+  }, [dispatch, page, limit, filteredData]);
+
+  const handleFilterChange = criteria => {
+    setFilteredData(criteria);
+    setPage(1);
+  };
 
   const cars = useSelector(selectItems);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-  const imgNotFound = 'https://placekitten.com/g/185/280';
+  // const imgNotFound = 'https://placekitten.com/g/185/280';
   // const imgNotFound = '../../img/placeholder.png';
 
   const favoriteCars = useSelector(selectFavoriteCars);
@@ -58,6 +72,7 @@ const CarList = () => {
     <>
       {isLoading && <p>Loading...</p>}
       {error && <p>Error happened</p>}
+      <Filter onFilterChange={handleFilterChange} />
       <CarGallery>
         {cars?.length > 0 ? (
           cars.map(car => {
@@ -78,7 +93,7 @@ const CarList = () => {
                     marginBottom: '14px',
                   }}
                   onError={e => {
-                    e.currentTarget.src = imgNotFound;
+                    e.currentTarget.src = placeholder;
                   }}
                 />
                 <AddToFavBtn

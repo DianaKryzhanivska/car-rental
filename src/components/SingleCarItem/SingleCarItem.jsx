@@ -12,7 +12,7 @@ import {
 } from './SingleCarItem.styled';
 
 const SingleCarItem = ({ car, close }) => {
-  const imgNotFound = 'https://placekitten.com/g/185/280';
+  // const imgNotFound = 'https://placekitten.com/g/185/280';
   // const imgNotFound = '../../img/placeholder.png';
 
   const rentalConditions = car.rentalConditions.split('\n');
@@ -24,7 +24,7 @@ const SingleCarItem = ({ car, close }) => {
     <>
       <ModalContainer>
         <img
-          src={car.img || car.photoLink || placeholder}
+          src={car.img || car.photoLink}
           alt={car.model}
           width={461}
           height={248}
@@ -34,7 +34,7 @@ const SingleCarItem = ({ car, close }) => {
             marginBottom: '14px',
           }}
           onError={e => {
-            e.currentTarget.src = imgNotFound;
+            e.currentTarget.src = placeholder;
           }}
         />
         <CarName>
