@@ -15,7 +15,7 @@ import Modal from 'components/Modal/Modal';
 import useModal from 'hooks/useModal';
 import SingleCarItem from 'components/SingleCarItem/SingleCarItem';
 import sprite from '../../img/sprite.svg';
-import { addToFavorites } from 'redux/favorites/slice';
+import { addToFavorites, removeFromFavorites } from 'redux/favorites/slice';
 import { selectFavoriteCars } from 'redux/favorites/selectors';
 
 const CarList = () => {
@@ -39,10 +39,15 @@ const CarList = () => {
   const favoriteCars = useSelector(selectFavoriteCars);
 
   const handleAddToFavClick = car => {
-    const isAlreadyInFav = favoriteCars.some(favCar => favCar.id === car.id);
-    if (!isAlreadyInFav) {
+    if (isAlreadyInFav(car)) {
+      dispatch(removeFromFavorites(car.id));
+    } else {
       dispatch(addToFavorites(car));
     }
+  };
+
+  const isAlreadyInFav = car => {
+    return favoriteCars.some(favCar => favCar.id === car.id);
   };
 
   const handleLoadMore = () => {
