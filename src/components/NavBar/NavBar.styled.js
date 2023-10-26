@@ -3,33 +3,35 @@ import { styled } from 'styled-components';
 
 export const NavWrapper = styled.div`
   padding: 20px 0;
+  background: #0b44cd;
+  margin-bottom: 50px;
 `;
 
 export const NavList = styled.ul`
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  gap: 100px;
   align-items: center;
   justify-content: center;
-  margin-right: 100px;
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 18px;
-  border-radius: 4px;
+  text-align: center;
+  padding: 12px 34px;
+  border-radius: 12px;
   text-decoration: none;
-  border-radius: 8px;
-  font-size: 18px;
-  color: black;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.43em;
+  color: #fff;
+  background-color: #3470ff;
 
   &.active {
-    background-color: #0b44cd;
-    color: white;
+    background-color: #fff;
+    color: #0b44cd;
   }
   &:hover:not(.active) {
-    background-color: #3470ff;
+    background-color: #fff;
+    color: #0b44cd;
   }
 `;

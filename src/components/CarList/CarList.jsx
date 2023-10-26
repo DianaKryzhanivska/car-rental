@@ -19,6 +19,7 @@ import { addToFavorites, removeFromFavorites } from 'redux/favorites/slice';
 import { selectFavoriteCars } from 'redux/favorites/selectors';
 import placeholder from '../../img/placeholder.png';
 import Filter from 'components/Filter/Filter';
+import { MainContainer } from 'styles/GlobalStyles';
 
 const CarList = () => {
   const { open, close, isOpen, data } = useModal();
@@ -115,18 +116,73 @@ const CarList = () => {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>Error happened</p>}
-      <Filter
-        onFilterChange={newFilters => {
-          setFilters(newFilters);
-          setIsFiltering(true);
-        }}
-      />
-      <CarGallery>
-        {isFiltering ? (
-          filteredCars?.length > 0 ? (
-            filteredCars.map(car => {
+      <MainContainer>
+        {isLoading && <p>Loading...</p>}
+        {error && <p>Error happened</p>}
+        <Filter
+          onFilterChange={newFilters => {
+            setFilters(newFilters);
+            setIsFiltering(true);
+          }}
+        />
+        <CarGallery>
+          {isFiltering ? (
+            filteredCars?.length > 0 ? (
+              filteredCars.map(car => {
+                const isAlreadyInFav = favoriteCars.some(
+                  favCar => favCar.id === car.id
+                );
+
+                return (
+                  <CarItem key={car.id}>
+                    <img
+                      src={car.img || car.photoLink}
+                      alt={car.model}
+                      width={274}
+                      height={268}
+                      style={{
+                        objectFit: 'cover',
+                        borderRadius: '14px',
+                        marginBottom: '14px',
+                      }}
+                      onError={e => {
+                        e.currentTarget.src = placeholder;
+                      }}
+                    />
+                    <AddToFavBtn
+                      type="button"
+                      onClick={() => handleAddToFavClick(car)}
+                    >
+                      {isAlreadyInFav ? (
+                        <svg width={18} height={18}>
+                          <use href={`${sprite}#heart_active`} />
+                        </svg>
+                      ) : (
+                        <svg width={18} height={18}>
+                          <use href={`${sprite}#heart`} />
+                        </svg>
+                      )}
+                    </AddToFavBtn>
+                    <CarMainInfo>
+                      <p>
+                        {`${car.make}`} <span>{car.model}</span> {`${car.year}`}
+                      </p>
+                      <p>{car.rentalPrice}</p>
+                    </CarMainInfo>
+                    <div>
+                      <CarSecondaryInfo>{`Ukraine | ${car.rentalCompany} | ${car.type} | ${car.id}`}</CarSecondaryInfo>
+                    </div>
+                    <LearnMoreBtn type="button" onClick={() => open(car)}>
+                      Learn more
+                    </LearnMoreBtn>
+                  </CarItem>
+                );
+              })
+            ) : (
+              <p>No results for this filter</p>
+            )
+          ) : cars?.length > 0 ? (
+            cars.map(car => {
               const isAlreadyInFav = favoriteCars.some(
                 favCar => favCar.id === car.id
               );
@@ -177,66 +233,13 @@ const CarList = () => {
               );
             })
           ) : (
-            <p>No results for this filter</p>
-          )
-        ) : cars?.length > 0 ? (
-          cars.map(car => {
-            const isAlreadyInFav = favoriteCars.some(
-              favCar => favCar.id === car.id
-            );
-
-            return (
-              <CarItem key={car.id}>
-                <img
-                  src={car.img || car.photoLink}
-                  alt={car.model}
-                  width={274}
-                  height={268}
-                  style={{
-                    objectFit: 'cover',
-                    borderRadius: '14px',
-                    marginBottom: '14px',
-                  }}
-                  onError={e => {
-                    e.currentTarget.src = placeholder;
-                  }}
-                />
-                <AddToFavBtn
-                  type="button"
-                  onClick={() => handleAddToFavClick(car)}
-                >
-                  {isAlreadyInFav ? (
-                    <svg width={18} height={18}>
-                      <use href={`${sprite}#heart_active`} />
-                    </svg>
-                  ) : (
-                    <svg width={18} height={18}>
-                      <use href={`${sprite}#heart`} />
-                    </svg>
-                  )}
-                </AddToFavBtn>
-                <CarMainInfo>
-                  <p>
-                    {`${car.make}`} <span>{car.model}</span> {`${car.year}`}
-                  </p>
-                  <p>{car.rentalPrice}</p>
-                </CarMainInfo>
-                <div>
-                  <CarSecondaryInfo>{`Ukraine | ${car.rentalCompany} | ${car.type} | ${car.id}`}</CarSecondaryInfo>
-                </div>
-                <LearnMoreBtn type="button" onClick={() => open(car)}>
-                  Learn more
-                </LearnMoreBtn>
-              </CarItem>
-            );
-          })
-        ) : (
-          <p>No data available</p>
-        )}
-      </CarGallery>
-      <LoadMoreBtn type="button" onClick={handleLoadMore}>
-        Load more
-      </LoadMoreBtn>
+            <p>No data available</p>
+          )}
+        </CarGallery>
+        <LoadMoreBtn type="button" onClick={handleLoadMore}>
+          Load more
+        </LoadMoreBtn>
+      </MainContainer>
       {isOpen && (
         <Modal close={close}>
           <SingleCarItem carItem={data} close={close} car={data} />
