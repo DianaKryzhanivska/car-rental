@@ -13,27 +13,27 @@ import {
 
 const Filter = ({ onFilterChange }) => {
   const carBrands = [
-    { value: 'Buick', label: 'Buick' },
-    { value: 'Volvo', label: 'Volvo' },
-    { value: 'HUMMER', label: 'HUMMER' },
-    { value: 'Subaru', label: 'Subaru' },
-    { value: 'Mitsubishi', label: 'Mitsubishi' },
-    { value: 'Nissan', label: 'Nissan' },
-    { value: 'Lincoln', label: 'Lincoln' },
-    { value: 'GMC', label: 'GMC' },
-    { value: 'Hyundai', label: 'Hyundai' },
-    { value: 'MINI', label: 'MINI' },
-    { value: 'Bentley', label: 'Bentley' },
-    { value: 'Mercedes-Benz', label: 'Mercedes-Benz' },
     { value: 'Aston Martin', label: 'Aston Martin' },
-    { value: 'Pontiac', label: 'Pontiac' },
-    { value: 'Lamborghini', label: 'Lamborghini' },
     { value: 'Audi', label: 'Audi' },
+    { value: 'Bentley', label: 'Bentley' },
     { value: 'BMW', label: 'BMW' },
+    { value: 'Buick', label: 'Buick' },
     { value: 'Chevrolet', label: 'Chevrolet' },
     { value: 'Chrysler', label: 'Chrysler' },
+    { value: 'GMC', label: 'GMC' },
+    { value: 'HUMMER', label: 'HUMMER' },
+    { value: 'Hyundai', label: 'Hyundai' },
     { value: 'Kia', label: 'Kia' },
+    { value: 'Lamborghini', label: 'Lamborghini' },
     { value: 'Land', label: 'Land' },
+    { value: 'Lincoln', label: 'Lincoln' },
+    { value: 'Mercedes-Benz', label: 'Mercedes-Benz' },
+    { value: 'MINI', label: 'MINI' },
+    { value: 'Mitsubishi', label: 'Mitsubishi' },
+    { value: 'Nissan', label: 'Nissan' },
+    { value: 'Pontiac', label: 'Pontiac' },
+    { value: 'Subaru', label: 'Subaru' },
+    { value: 'Volvo', label: 'Volvo' },
   ];
 
   const carPrices = [];
@@ -56,8 +56,6 @@ const Filter = ({ onFilterChange }) => {
       minMileage,
       maxMileage,
     };
-
-    console.log(filteredData);
 
     onFilterChange(filteredData);
 
