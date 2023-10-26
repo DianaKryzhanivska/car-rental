@@ -11,13 +11,15 @@ export const CarGallery = styled.ul`
 export const CarItem = styled.li`
   width: 274px;
   height: 426px;
-  border: 1px solid gray;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 14px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 `;
 
 export const AddToFavBtn = styled.button`
-  /* width: 28px;
-  height: 28px; */
   background: transparent;
   display: flex;
   align-items: center;
@@ -44,18 +46,17 @@ export const CarMainInfo = styled.div`
 `;
 
 export const CarSecondaryInfo = styled.p`
-  /* height: 40px; */
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   font-weight: 400;
   /* line-height: 1.5em; */
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 28px;
 `;
 
 export const LearnMoreBtn = styled.button`
   width: 274px;
+  margin-top: 28px;
   border-radius: 12px;
   border: none;
   padding: 12px 98px;
@@ -73,7 +74,6 @@ export const LearnMoreBtn = styled.button`
 `;
 
 export const LoadMoreBtn = styled.button`
-  /* width: 79px; */
   height: 24px;
   color: #3470ff;
   font-size: 16px;

@@ -169,9 +169,13 @@ const CarList = () => {
                       </p>
                       <p>{car.rentalPrice}</p>
                     </CarMainInfo>
-                    <div>
-                      <CarSecondaryInfo>{`Ukraine | ${car.rentalCompany} | ${car.type} | ${car.id}`}</CarSecondaryInfo>
-                    </div>
+
+                    <CarSecondaryInfo>{`${car.address.split(', ')[1]} | ${
+                      car.address.split(', ')[2]
+                    } | ${car.rentalCompany} | ${car.type} | ${car.model} | ${
+                      car.id
+                    } | ${car.functionalities[0]}`}</CarSecondaryInfo>
+
                     <LearnMoreBtn type="button" onClick={() => open(car)}>
                       Learn more
                     </LearnMoreBtn>
@@ -223,9 +227,13 @@ const CarList = () => {
                     </p>
                     <p>{car.rentalPrice}</p>
                   </CarMainInfo>
-                  <div>
-                    <CarSecondaryInfo>{`Ukraine | ${car.rentalCompany} | ${car.type} | ${car.id}`}</CarSecondaryInfo>
-                  </div>
+
+                  <CarSecondaryInfo>{`${car.address.split(', ')[1]} | ${
+                    car.address.split(', ')[2]
+                  } | ${car.rentalCompany} | ${car.type} | ${car.model} | ${
+                    car.id
+                  } | ${car.functionalities[0]}`}</CarSecondaryInfo>
+
                   <LearnMoreBtn type="button" onClick={() => open(car)}>
                     Learn more
                   </LearnMoreBtn>
