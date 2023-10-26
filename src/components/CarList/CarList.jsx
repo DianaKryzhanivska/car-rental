@@ -35,7 +35,13 @@ const CarList = () => {
   });
 
   useEffect(() => {
-    dispatch(fetchAllCars({ page, limit, filteredData }));
+    dispatch(
+      fetchAllCars({
+        page,
+        limit,
+        ...filteredData,
+      })
+    );
   }, [dispatch, page, limit, filteredData]);
 
   const handleFilterChange = criteria => {

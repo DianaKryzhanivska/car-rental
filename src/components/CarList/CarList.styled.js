@@ -3,8 +3,8 @@ import { styled } from 'styled-components';
 export const CarGallery = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  row-gap: 50px;
-  column-gap: 29px;
+  justify-content: center;
+  gap: 50px 29px;
   list-style: none;
 `;
 
