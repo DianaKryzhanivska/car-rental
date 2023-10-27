@@ -73,8 +73,10 @@ export const SearchBtn = styled.button`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.43em;
+  transition: transform 0.2s, background-color 0.2s;
 
   &:hover {
     background: #0b44cd;
+    transform: scale(1.1);
   }
 `;

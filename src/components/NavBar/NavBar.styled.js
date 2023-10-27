@@ -25,6 +25,7 @@ export const StyledNavLink = styled(NavLink)`
   line-height: 1.43em;
   color: #fff;
   background-color: #3470ff;
+  transition: transform 0.2s, background-color 0.2s;
 
   &.active {
     background-color: #fff;
@@ -33,5 +34,6 @@ export const StyledNavLink = styled(NavLink)`
   &:hover:not(.active) {
     background-color: #fff;
     color: #0b44cd;
+    transform: scale(1.1);
   }
 `;

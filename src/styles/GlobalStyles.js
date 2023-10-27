@@ -48,6 +48,6 @@ img {
 export const MainContainer = styled.div`
   padding: 0 44px;
   @media screen and (min-width: 1281px) {
-    padding: 0 228px;
+    padding: 0 158px;
   }
 `;

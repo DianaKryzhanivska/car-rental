@@ -17,6 +17,17 @@ export const CarItem = styled.li`
   justify-content: space-between;
   border-radius: 14px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  overflow: hidden;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  img {
+    transition: transform 0.3s;
+  }
 `;
 
 export const AddToFavBtn = styled.button`
@@ -66,6 +77,7 @@ export const LearnMoreBtn = styled.button`
   color: #fff;
   background: #3470ff;
   cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
 
   &:hover,
   &:focus {

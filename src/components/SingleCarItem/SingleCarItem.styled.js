@@ -2,6 +2,20 @@ import { styled } from 'styled-components';
 
 export const ModalContainer = styled.div`
   padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s;
+    transform-origin: center center;
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
 `;
 
 export const CarName = styled.h2`
@@ -82,4 +96,10 @@ export const RentalLink = styled.a`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.43em;
+  transition: transform 0.2s, background-color 0.2s;
+
+  &:hover {
+    background: #0b44cd;
+    transform: scale(1.1);
+  }
 `;
