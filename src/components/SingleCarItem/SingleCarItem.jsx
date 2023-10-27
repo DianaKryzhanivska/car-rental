@@ -12,9 +12,6 @@ import {
 } from './SingleCarItem.styled';
 
 const SingleCarItem = ({ car, close }) => {
-  // const imgNotFound = 'https://placekitten.com/g/185/280';
-  // const imgNotFound = '../../img/placeholder.png';
-
   const rentalConditions = car.rentalConditions.split('\n');
   const formattedMileage = car.mileage
     .toString()

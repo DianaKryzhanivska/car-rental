@@ -20,6 +20,7 @@ import { selectFavoriteCars } from 'redux/favorites/selectors';
 import placeholder from '../../img/placeholder.png';
 import Filter from 'components/Filter/Filter';
 import { MainContainer } from 'styles/GlobalStyles';
+import Loader from 'components/Loader/Loader';
 
 const CarList = () => {
   const { open, close, isOpen, data } = useModal();
@@ -93,9 +94,6 @@ const CarList = () => {
     }
   }, [filters, isFiltering, cars]);
 
-  // const imgNotFound = 'https://placekitten.com/g/185/280';
-  // const imgNotFound = '../../img/placeholder.png';
-
   const favoriteCars = useSelector(selectFavoriteCars);
 
   const handleAddToFavClick = car => {
@@ -112,12 +110,13 @@ const CarList = () => {
 
   const handleLoadMore = () => {
     setPage(page + 1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <>
       <MainContainer>
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <Loader />}
         {error && <p>Error happened</p>}
         <Filter
           onFilterChange={newFilters => {
