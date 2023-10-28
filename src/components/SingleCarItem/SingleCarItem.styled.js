@@ -19,14 +19,14 @@ export const ModalContainer = styled.div`
 `;
 
 export const CarName = styled.h2`
-  color: #121417;
+  color: ${({ theme }) => theme.colors.mainBlack};
   font-size: 18px;
   font-weight: 500;
   line-height: 1.33em;
   margin-bottom: 8px;
 
   span {
-    color: #3470ff;
+    color: ${({ theme }) => theme.colors.lightBlue};
   }
 `;
 
@@ -40,7 +40,7 @@ export const CarSecondaryInfo = styled.p`
 `;
 
 export const CarDescription = styled.p`
-  color: #121417;
+  color: ${({ theme }) => theme.colors.mainBlack};
   font-size: 14px;
   font-weight: 400;
   line-height: 1.43em;
@@ -48,7 +48,7 @@ export const CarDescription = styled.p`
 `;
 
 export const CarSubtitle = styled.h3`
-  color: #121417;
+  color: ${({ theme }) => theme.colors.mainBlack};
   font-size: 14px;
   font-weight: 500;
   line-height: 1.43em;
@@ -68,17 +68,17 @@ export const RentText = styled.p`
   justify-content: center;
   padding: 7px 14px;
   border-radius: 35px;
-  background: #f9f9f9;
+  background: ${({ theme }) => theme.colors.modalRentalCondBg};
   white-space: nowrap;
 
-  color: #363535;
+  color: ${({ theme }) => theme.colors.modalRentalCondText};
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5em;
   letter-spacing: -0.24px;
 
   span {
-    color: #3470ff;
+    color: ${({ theme }) => theme.colors.lightBlue};
     font-weight: 600;
     margin-left: 3px;
   }
@@ -91,15 +91,15 @@ export const RentalLink = styled.a`
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background: #3470ff;
-  color: #fff;
+  background: ${({ theme }) => theme.colors.lightBlue};
+  color: ${({ theme }) => theme.colors.mainWhite};
   font-size: 14px;
   font-weight: 600;
   line-height: 1.43em;
   transition: transform 0.2s, background-color 0.2s;
 
   &:hover {
-    background: #0b44cd;
+    background: ${({ theme }) => theme.colors.hoverBlue};
     transform: scale(1.1);
   }
 `;

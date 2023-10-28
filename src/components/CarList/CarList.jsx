@@ -21,6 +21,7 @@ import placeholder from '../../img/placeholder.png';
 import Filter from 'components/Filter/Filter';
 import { MainContainer } from 'styles/GlobalStyles';
 import Loader from 'components/Loader/Loader';
+import { toast } from 'react-toastify';
 
 const CarList = () => {
   const { open, close, isOpen, data } = useModal();
@@ -99,8 +100,10 @@ const CarList = () => {
   const handleAddToFavClick = car => {
     if (isAlreadyInFav(car)) {
       dispatch(removeFromFavorites(car.id));
+      toast.error('The car removed from favorites');
     } else {
       dispatch(addToFavorites(car));
+      toast.success('The car added to favorites');
     }
   };
 

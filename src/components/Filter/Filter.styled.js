@@ -10,7 +10,7 @@ export const FilterWrapper = styled.div`
 `;
 
 export const FilterSubtitle = styled.p`
-  color: #8a8a89;
+  color: ${({ theme }) => theme.colors.filterSubtitle};
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29em;
@@ -43,9 +43,9 @@ export const InputFrom = styled.input`
   border: none;
   border-radius: 14px 0px 0px 14px;
   border-right: 1px solid rgba(138, 138, 137, 0.2);
-  background: #f7f7fb;
+  background: ${({ theme }) => theme.colors.backgroundGray};
 
-  color: #121417;
+  color: ${({ theme }) => theme.colors.mainBlack};
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11em;
@@ -56,9 +56,9 @@ export const InputTo = styled.input`
   padding: 14px 24px;
   border: none;
   border-radius: 0px 14px 14px 0px;
-  background: #f7f7fb;
+  background: ${({ theme }) => theme.colors.backgroundGray};
 
-  color: #121417;
+  color: ${({ theme }) => theme.colors.mainBlack};
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11em;
@@ -67,16 +67,16 @@ export const InputTo = styled.input`
 export const SearchBtn = styled.button`
   padding: 14px 44px;
   border-radius: 12px;
-  background: #3470ff;
+  background: ${({ theme }) => theme.colors.lightBlue};
 
-  color: #fff;
+  color: ${({ theme }) => theme.colors.mainWhite};
   font-size: 14px;
   font-weight: 600;
   line-height: 1.43em;
   transition: transform 0.2s, background-color 0.2s;
 
   &:hover {
-    background: #0b44cd;
+    background: ${({ theme }) => theme.colors.hoverBlue};
     transform: scale(1.1);
   }
 `;

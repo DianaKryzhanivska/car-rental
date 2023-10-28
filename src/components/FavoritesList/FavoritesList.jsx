@@ -10,25 +10,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectFavoriteCars } from 'redux/favorites/selectors';
 import { removeFromFavorites } from 'redux/favorites/slice';
 import sprite from '../../img/sprite.svg';
-import { RemoveFromFavBtn } from './FavoritesList.styled';
+import { RemoveFromFavBtn, StyledMainContainer } from './FavoritesList.styled';
 import useModal from 'hooks/useModal';
 import Modal from 'components/Modal/Modal';
 import SingleCarItem from 'components/SingleCarItem/SingleCarItem';
 import placeholder from '../../img/placeholder.png';
+import { toast } from 'react-toastify';
 
 const FavoritesList = () => {
   const { open, close, isOpen, data } = useModal();
   const dispatch = useDispatch();
   const favoriteCars = useSelector(selectFavoriteCars);
   const handleRemoveFromFav = carId => {
+    toast.error('The car removed from favorites');
     dispatch(removeFromFavorites(carId));
   };
 
-  // const imgNotFound = 'https://placekitten.com/g/185/280';
-  // const imgNotFound = '../../img/placeholder.png';
-
   return (
-    <div>
+    <StyledMainContainer>
       <CarGallery>
         {favoriteCars?.length > 0 ? (
           favoriteCars.map(car => (
@@ -84,7 +83,7 @@ const FavoritesList = () => {
           <SingleCarItem carItem={data} close={close} car={data} />
         </Modal>
       )}
-    </div>
+    </StyledMainContainer>
   );
 };
 

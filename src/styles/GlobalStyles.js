@@ -1,7 +1,19 @@
-// import { styled } from 'styled-components';
 import styled, { createGlobalStyle } from 'styled-components';
+import fontRegular from '../fonts/Manrope-Regular.ttf';
+import fontBold from '../fonts/Manrope-Bold.ttf';
+import fontSemiBold from '../fonts/Manrope-SemiBold.ttf';
 
 export const GlobalStyles = createGlobalStyle`
+
+@font-face {
+  font-family: 'Manrope';
+  font-weight: 400 500 600;
+  src: url(${fontRegular}),url(${fontSemiBold}), url(${fontBold}) ;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+}
 
 h1,
 h2,

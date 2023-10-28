@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 
 export const NavWrapper = styled.div`
   padding: 20px 0;
-  background: #0b44cd;
+  background: ${({ theme }) => theme.colors.hoverBlue};
   margin-bottom: 50px;
 `;
 
@@ -23,17 +23,17 @@ export const StyledNavLink = styled(NavLink)`
   font-size: 16px;
   font-weight: 800;
   line-height: 1.43em;
-  color: #fff;
-  background-color: #3470ff;
+  color: ${({ theme }) => theme.colors.mainWhite};
+  background-color: ${({ theme }) => theme.colors.lightBlue};
   transition: transform 0.2s, background-color 0.2s;
 
   &.active {
-    background-color: #fff;
-    color: #0b44cd;
+    background-color: ${({ theme }) => theme.colors.mainWhite};
+    color: ${({ theme }) => theme.colors.hoverBlue};
   }
   &:hover:not(.active) {
-    background-color: #fff;
-    color: #0b44cd;
+    background-color: ${({ theme }) => theme.colors.mainWhite};
+    color: ${({ theme }) => theme.colors.hoverBlue};
     transform: scale(1.1);
   }
 `;

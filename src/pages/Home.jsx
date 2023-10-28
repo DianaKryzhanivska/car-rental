@@ -69,7 +69,7 @@ export const Title = styled.h1`
   font-size: 50px;
 
   span {
-    color: #0b44cd;
+    color: ${({ theme }) => theme.colors.hoverBlue};
     font-weight: bold;
   }
 `;
@@ -104,11 +104,11 @@ export const CarWrapper = styled.div`
 export const NavLinkStyled = styled(NavLink)`
   padding: 14px 14px;
   border-radius: 12px;
-  background: #3470ff;
+  background: ${({ theme }) => theme.colors.lightBlue};
   width: 110px;
   margin-top: 50px;
 
-  color: #fff;
+  color: ${({ theme }) => theme.colors.mainWhite};
   font-size: 14px;
   text-align: center;
   font-weight: 800;
@@ -116,7 +116,7 @@ export const NavLinkStyled = styled(NavLink)`
   transition: transform 0.2s, background-color 0.2s;
 
   &:hover {
-    background: #0b44cd;
+    background: ${({ theme }) => theme.colors.hoverBlue};
     transform: scale(1.1);
   }
 `;
@@ -135,8 +135,8 @@ export const RentLink = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #3470ff;
-  color: #3470ff;
+  border: 2px solid ${({ theme }) => theme.colors.lightBlue};
+  color: ${({ theme }) => theme.colors.lightBlue};
   font-size: 14px;
   font-weight: 800;
   line-height: 1.43em;

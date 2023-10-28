@@ -46,13 +46,12 @@ export const CarMainInfo = styled.div`
   justify-content: space-between;
   padding-right: 9px;
   margin-bottom: 8px;
-  color: #121417;
+  color: ${({ theme }) => theme.colors.mainBlack};
   font-size: 16px;
   font-weight: 500;
-  /* line-height: 1.5; */
 
   span {
-    color: #3470ff;
+    color: ${({ theme }) => theme.colors.lightBlue};
   }
 `;
 
@@ -60,7 +59,6 @@ export const CarSecondaryInfo = styled.p`
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   font-weight: 400;
-  /* line-height: 1.5em; */
   display: flex;
   flex-wrap: wrap;
 `;
@@ -74,20 +72,20 @@ export const LearnMoreBtn = styled.button`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.43em;
-  color: #fff;
-  background: #3470ff;
+  color: ${({ theme }) => theme.colors.mainWhite};
+  background: ${({ theme }) => theme.colors.lightBlue};
   cursor: pointer;
   transition: transform 0.2s, background-color 0.2s;
 
   &:hover,
   &:focus {
-    background: #0b44cd;
+    background: ${({ theme }) => theme.colors.hoverBlue};
   }
 `;
 
 export const LoadMoreBtn = styled.button`
   height: 24px;
-  color: #3470ff;
+  color: ${({ theme }) => theme.colors.lightBlue};
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5em;
@@ -103,6 +101,6 @@ export const LoadMoreBtn = styled.button`
 
   &:hover,
   &:focus {
-    color: #0b44cd;
+    color: ${({ theme }) => theme.colors.hoverBlue};
   }
 `;

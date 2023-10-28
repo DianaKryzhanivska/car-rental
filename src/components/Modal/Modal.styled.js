@@ -22,7 +22,7 @@ export const ModalWindow = styled.div`
   /* padding: 40px; */
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: ${({ theme }) => theme.colors.mainWhite};
   border-radius: 24px;
   position: relative;
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);

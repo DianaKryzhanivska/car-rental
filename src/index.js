@@ -9,17 +9,21 @@ import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { GlobalStyles } from 'styles/GlobalStyles';
 import { PersistGate } from 'redux-persist/integration/react';
+import { theme } from 'styles/theme';
+import { ThemeProvider } from 'styled-components';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/car-rental">
-        <PersistGate loading={null} persistor={persistor}>
-          <App />
-        </PersistGate>
-      </BrowserRouter>
-      <ToastContainer transition={Zoom} autoClose={2000} />
-      <GlobalStyles />
+      <ThemeProvider theme={theme}>
+        <BrowserRouter basename="/car-rental">
+          <PersistGate loading={null} persistor={persistor}>
+            <App />
+          </PersistGate>
+        </BrowserRouter>
+        <ToastContainer transition={Zoom} autoClose={2000} />
+        <GlobalStyles />
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );

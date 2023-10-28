@@ -1,4 +1,9 @@
 import { styled } from 'styled-components';
+import { MainContainer } from 'styles/GlobalStyles';
+
+export const StyledMainContainer = styled(MainContainer)`
+  padding-bottom: 50px;
+`;
 
 export const RemoveFromFavBtn = styled.button`
   background: transparent;
