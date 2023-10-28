@@ -32,8 +32,8 @@ const CarList = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-  const [page, setPage] = useState(1);
-  const limit = 12;
+  const page = 1;
+  const [limit, setLimit] = useState(12);
 
   const totalCars = 32;
   const totalPages = Math.ceil(totalCars / limit);
@@ -115,8 +115,7 @@ const CarList = () => {
   };
 
   const handleLoadMore = () => {
-    setPage(page + 1);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setLimit(prev => prev + 12);
   };
 
   return (
