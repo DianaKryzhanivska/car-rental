@@ -24,7 +24,6 @@ const persistedReducer = persistReducer(persistConfig, favoritesReducer);
 export const store = configureStore({
   reducer: {
     adverts: advertsReducer,
-    // favorites: favoritesReducer,
     favorites: persistedReducer,
   },
   middleware: getDefaultMiddleware =>

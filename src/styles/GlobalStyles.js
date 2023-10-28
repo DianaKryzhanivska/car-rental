@@ -30,10 +30,6 @@ body {
   padding: 0;
 }
 
-p:last-child {
-  /* margin-bottom: 0; */
-}
-
 ul {
   margin: 0;
   padding: 0;

@@ -31,7 +31,6 @@ export const PriceWrapper = styled.div`
 `;
 
 export const MileageWrapper = styled.div`
-  /* width: 320px; */
   display: flex;
   flex-direction: column;
   gap: 8px;
