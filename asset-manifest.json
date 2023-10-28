@@ -1,16 +1,19 @@
 {
   "files": {
     "main.css": "/car-rental/static/css/main.7fe2c6f2.css",
-    "main.js": "/car-rental/static/js/main.92fb0a9d.js",
+    "main.js": "/car-rental/static/js/main.bfb80f4d.js",
     "static/media/mercedes.png": "/car-rental/static/media/mercedes.bbbdad5ea0fc2ae48396.png",
+    "static/media/Manrope-SemiBold.ttf": "/car-rental/static/media/Manrope-SemiBold.310f108cc524df0e5ffc.ttf",
+    "static/media/Manrope-Regular.ttf": "/car-rental/static/media/Manrope-Regular.a9b9e09fe6b69741f316.ttf",
+    "static/media/Manrope-Bold.ttf": "/car-rental/static/media/Manrope-Bold.47f6d7143da9d8c0e480.ttf",
     "static/media/sprite.svg": "/car-rental/static/media/sprite.08111fccba8ee11f34958e57d4f076cb.svg",
     "index.html": "/car-rental/index.html",
     "static/media/close.svg": "/car-rental/static/media/close.f3cbdd58dc25ca7cbb3d242106b56fb9.svg",
     "main.7fe2c6f2.css.map": "/car-rental/static/css/main.7fe2c6f2.css.map",
-    "main.92fb0a9d.js.map": "/car-rental/static/js/main.92fb0a9d.js.map"
+    "main.bfb80f4d.js.map": "/car-rental/static/js/main.bfb80f4d.js.map"
   },
   "entrypoints": [
     "static/css/main.7fe2c6f2.css",
-    "static/js/main.92fb0a9d.js"
+    "static/js/main.bfb80f4d.js"
   ]
 }
