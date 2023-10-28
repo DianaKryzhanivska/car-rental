@@ -10,6 +10,7 @@ import {
   CarSecondaryInfo,
   LearnMoreBtn,
   LoadMoreBtn,
+  StyledMainContainer,
 } from './CarList.styled';
 import Modal from 'components/Modal/Modal';
 import useModal from 'hooks/useModal';
@@ -19,7 +20,6 @@ import { addToFavorites, removeFromFavorites } from 'redux/favorites/slice';
 import { selectFavoriteCars } from 'redux/favorites/selectors';
 import placeholder from '../../img/placeholder.png';
 import Filter from 'components/Filter/Filter';
-import { MainContainer } from 'styles/GlobalStyles';
 import Loader from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
 
@@ -34,6 +34,9 @@ const CarList = () => {
 
   const [page, setPage] = useState(1);
   const limit = 12;
+
+  const totalCars = 32;
+  const totalPages = Math.ceil(totalCars / limit);
 
   const [filters, setFilters] = useState({
     selectedBrand: null,
@@ -118,7 +121,7 @@ const CarList = () => {
 
   return (
     <>
-      <MainContainer>
+      <StyledMainContainer>
         {isLoading && <Loader />}
         {error && <p>Error happened</p>}
         <Filter
@@ -246,10 +249,12 @@ const CarList = () => {
             <p>No data available</p>
           )}
         </CarGallery>
-        <LoadMoreBtn type="button" onClick={handleLoadMore}>
-          Load more
-        </LoadMoreBtn>
-      </MainContainer>
+        {page < totalPages && (
+          <LoadMoreBtn type="button" onClick={handleLoadMore}>
+            Load more
+          </LoadMoreBtn>
+        )}
+      </StyledMainContainer>
       {isOpen && (
         <Modal close={close}>
           <SingleCarItem carItem={data} close={close} car={data} />

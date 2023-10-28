@@ -1,4 +1,9 @@
 import { styled } from 'styled-components';
+import { MainContainer } from 'styles/GlobalStyles';
+
+export const StyledMainContainer = styled(MainContainer)`
+  margin-bottom: 100px;
+`;
 
 export const CarGallery = styled.ul`
   display: flex;
@@ -91,7 +96,6 @@ export const LoadMoreBtn = styled.button`
   line-height: 1.5em;
   text-decoration-line: underline;
   margin-top: 100px;
-  margin-bottom: 150px;
 
   margin-left: 50%;
   transform: translateX(-50%);
