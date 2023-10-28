@@ -48,22 +48,15 @@ const CarList = () => {
   const [filteredCars, setFilteredCars] = useState(null);
   const [isFiltering, setIsFiltering] = useState(false);
 
-  const [filteredData] = useState({
-    selectedBrand: null,
-    selectedPrice: null,
-    minMileage: '',
-    maxMileage: '',
-  });
-
   useEffect(() => {
     dispatch(
       fetchAllCars({
         page,
         limit,
-        ...filteredData,
+        ...filters,
       })
     );
-  }, [dispatch, page, limit, filteredData]);
+  }, [dispatch, page, limit, filters]);
 
   useEffect(() => {
     if (isFiltering) {
@@ -92,8 +85,10 @@ const CarList = () => {
           return makeMatch && priceMatch && mileageMatch;
         });
         setFilteredCars(filteredData);
+        setLimit(totalCars);
       } else {
         setFilteredCars(cars);
+        setLimit(totalCars);
       }
     }
   }, [filters, isFiltering, cars]);

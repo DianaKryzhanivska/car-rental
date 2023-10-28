@@ -11,8 +11,12 @@ import {
   RentalLink,
 } from './SingleCarItem.styled';
 
-const SingleCarItem = ({ car, close }) => {
+const SingleCarItem = ({ car }) => {
   const rentalConditions = car.rentalConditions.split('\n');
+  const minimumAgeEl = rentalConditions[0];
+  const match = minimumAgeEl.match(/\d+/);
+  const age = parseInt(match[0], 10);
+
   const formattedMileage = car.mileage
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -48,9 +52,11 @@ const SingleCarItem = ({ car, close }) => {
         </CarSecondaryInfo>
         <CarSubtitle>Rental Conditions:</CarSubtitle>
         <RentWrapper>
-          {rentalConditions.map((condition, index) => (
-            <RentText key={index}>{condition}</RentText>
-          ))}
+          <RentText>
+            Minimum age: <span>{age}</span>
+          </RentText>
+          <RentText>{rentalConditions[1]}</RentText>
+          <RentText>{rentalConditions[2]}</RentText>
           <RentText>
             {`Mileage: `} <span>{formattedMileage}</span>
           </RentText>
