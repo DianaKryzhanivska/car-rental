@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Select from 'react-select';
 import {
   BrandsWrapper,
@@ -11,7 +11,25 @@ import {
   SearchBtn,
 } from './Filter.styled';
 
+const customStyles = {
+  control: provided => ({
+    ...provided,
+    height: '48px',
+    background: '#F7F7FB',
+    border: 'none',
+    borderRadius: '14px',
+  }),
+};
+
 const Filter = ({ onFilterChange }) => {
+  const selectRef = useRef(null);
+
+  useEffect(() => {
+    if (selectRef.current) {
+      selectRef.current.focus();
+    }
+  }, []);
+
   const carBrands = [
     { value: 'Aston Martin', label: 'Aston Martin' },
     { value: 'Audi', label: 'Audi' },
@@ -71,10 +89,12 @@ const Filter = ({ onFilterChange }) => {
         <BrandsWrapper>
           <FilterSubtitle>Car brand</FilterSubtitle>
           <Select
+            ref={selectRef}
             value={selectedBrand}
             onChange={setSelectedBrand}
             options={carBrands}
             placeholder="Enter the text"
+            styles={customStyles}
           />
         </BrandsWrapper>
         <PriceWrapper>
@@ -84,6 +104,7 @@ const Filter = ({ onFilterChange }) => {
             onChange={setSelectedPrice}
             options={carPrices}
             placeholder="To $"
+            styles={customStyles}
           />
         </PriceWrapper>
         <MileageWrapper>

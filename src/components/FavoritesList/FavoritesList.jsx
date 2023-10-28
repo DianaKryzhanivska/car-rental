@@ -10,12 +10,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectFavoriteCars } from 'redux/favorites/selectors';
 import { removeFromFavorites } from 'redux/favorites/slice';
 import sprite from '../../img/sprite.svg';
-import { RemoveFromFavBtn, StyledMainContainer } from './FavoritesList.styled';
+import {
+  NoFavText,
+  RemoveFromFavBtn,
+  StyledMainContainer,
+} from './FavoritesList.styled';
 import useModal from 'hooks/useModal';
 import Modal from 'components/Modal/Modal';
 import SingleCarItem from 'components/SingleCarItem/SingleCarItem';
 import placeholder from '../../img/placeholder.png';
 import { toast } from 'react-toastify';
+import { NavLinkStyled } from 'pages/Home';
 
 const FavoritesList = () => {
   const { open, close, isOpen, data } = useModal();
@@ -73,9 +78,10 @@ const FavoritesList = () => {
             </CarItem>
           ))
         ) : (
-          <p>
-            You have not added any cars to your favorites yet. Let's choose!
-          </p>
+          <NoFavText>
+            You have not added any cars to your favorites yet. Let's{' '}
+            <NavLinkStyled to="/catalog">choose!</NavLinkStyled>
+          </NoFavText>
         )}
       </CarGallery>
       {isOpen && (

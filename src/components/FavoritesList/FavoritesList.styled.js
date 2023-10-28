@@ -5,6 +5,12 @@ export const StyledMainContainer = styled(MainContainer)`
   padding-bottom: 50px;
 `;
 
+export const NoFavText = styled.p`
+  margin-top: 100px;
+  font-size: 22px;
+  font-weight: 500;
+`;
+
 export const RemoveFromFavBtn = styled.button`
   background: transparent;
   display: flex;
