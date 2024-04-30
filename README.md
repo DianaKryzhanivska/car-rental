@@ -1,4 +1,4 @@
-# <p align="center">CarRental</p>
+# <p align="center">Car Rental</p>
 
 ![image](https://github.com/DianaKryzhanivska/car-rental/blob/main/assets/home.png)
 
