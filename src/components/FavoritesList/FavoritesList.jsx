@@ -20,7 +20,7 @@ import Modal from 'components/Modal/Modal';
 import SingleCarItem from 'components/SingleCarItem/SingleCarItem';
 import placeholder from '../../img/placeholder.png';
 import { toast } from 'react-toastify';
-import { NavLinkStyled } from 'pages/Home';
+import { NavLinkStyled } from '../Home/Home.styled';
 
 const FavoritesList = () => {
   const { open, close, isOpen, data } = useModal();

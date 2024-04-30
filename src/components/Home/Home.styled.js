@@ -1,58 +1,5 @@
-import NavBar from 'components/NavBar/NavBar';
-import React from 'react';
-import mercedes from '../../src/img/mercedes.png';
-import { styled } from 'styled-components';
-import { MainContainer } from 'styles/GlobalStyles';
 import { NavLink } from 'react-router-dom';
-import { MdDoneOutline } from 'react-icons/md';
-
-const Home = () => {
-  return (
-    <>
-      <NavBar />
-      <MainContainer>
-        <Title>
-          Enjoy driving with <span>Car Rental</span>
-        </Title>
-        <HeroWrapper>
-          <InfoBox>
-            <TextList>
-              <TextItem>
-                <MdDoneOutline />
-                <p>Modern car rental service via smartphone</p>
-              </TextItem>
-              <TextItem>
-                <MdDoneOutline />
-                <p>It's 30% cheaper than a taxi</p>
-              </TextItem>
-              <TextItem>
-                <MdDoneOutline />
-                <p>New comfortable cars with full insurance</p>
-              </TextItem>
-              <TextItem>
-                <MdDoneOutline />
-                <p>Rent for an hour, a day, a month</p>
-              </TextItem>
-              <TextItem>
-                <MdDoneOutline />
-                <p>A wide selection of cars for any request and budget</p>
-              </TextItem>
-            </TextList>
-            <LinkBox>
-              <NavLinkStyled to="/catalog">Choose a car</NavLinkStyled>
-              <RentLink href="tel:+380730000000">Rent now</RentLink>
-            </LinkBox>
-          </InfoBox>
-          <CarWrapper>
-            <img src={mercedes} alt="mercedes" />
-          </CarWrapper>
-        </HeroWrapper>
-      </MainContainer>
-    </>
-  );
-};
-
-export default Home;
+import styled from 'styled-components';
 
 export const HeroWrapper = styled.div`
   display: flex;
@@ -71,6 +18,10 @@ export const Title = styled.h1`
   span {
     color: ${({ theme }) => theme.colors.hoverBlue};
     font-weight: bold;
+  }
+
+  @media only screen and (max-width: 767px) {
+    font-size: 32px;
   }
 `;
 
@@ -119,6 +70,10 @@ export const NavLinkStyled = styled(NavLink)`
     background: ${({ theme }) => theme.colors.hoverBlue};
     transform: scale(1.1);
   }
+
+  @media only screen and (max-width: 1439px) {
+    margin-top: 0;
+  }
 `;
 
 export const LinkBox = styled.div`
@@ -126,6 +81,10 @@ export const LinkBox = styled.div`
   align-items: baseline;
   justify-content: flex-start;
   gap: 20px;
+
+  @media only screen and (max-width: 1439px) {
+    align-items: center;
+  }
 `;
 
 export const RentLink = styled.a`
@@ -144,5 +103,10 @@ export const RentLink = styled.a`
 
   &:hover {
     transform: scale(1.1);
+  }
+
+  @media only screen and (max-width: 1439px) {
+    width: 118px;
+    padding: 12px 8px;
   }
 `;
