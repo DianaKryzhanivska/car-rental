@@ -1,9 +1,6 @@
 import { styled } from 'styled-components';
 
 export const ModalContainer = styled.div`
-  padding: 40px;
-  position: relative;
-  overflow: hidden;
   transition: transform 0.3s;
 
   img {
@@ -15,6 +12,10 @@ export const ModalContainer = styled.div`
     &:hover {
       transform: scale(1.5);
     }
+  }
+
+  @media only screen and (max-width: 767px) {
+    max-width: 345px;
   }
 `;
 
@@ -31,7 +32,7 @@ export const CarName = styled.h2`
 `;
 
 export const CarSecondaryInfo = styled.p`
-  width: 277px;
+  width: 100%;
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   font-weight: 400;

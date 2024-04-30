@@ -18,13 +18,26 @@ export const Overlay = styled.div`
 `;
 
 export const ModalWindow = styled.div`
+  padding: 40px;
   width: 541px;
+  height: auto;
+  max-height: 720px;
+  overflow-y: auto;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   background: ${({ theme }) => theme.colors.mainWhite};
   border-radius: 24px;
   position: relative;
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+
+  @media only screen and (max-width: 1439px) {
+    max-height: 620px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    width: 425px;
+  }
 `;
 
 export const CloseBtn = styled.button`

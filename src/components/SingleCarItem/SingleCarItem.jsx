@@ -47,7 +47,12 @@ const SingleCarItem = ({ car }) => {
         </div>
         <CarDescription>{car.description}</CarDescription>
         <CarSubtitle>Accessories and functionalities:</CarSubtitle>
-        <CarSecondaryInfo style={{ marginBottom: '24px', width: '461px' }}>
+        <CarSecondaryInfo
+          style={{
+            marginBottom: '24px',
+            overflowWrap: 'break-word',
+          }}
+        >
           {car.accessories.join(' | ')}
         </CarSecondaryInfo>
         <CarSubtitle>Rental Conditions:</CarSubtitle>
