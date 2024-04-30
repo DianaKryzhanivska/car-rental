@@ -13,6 +13,10 @@ export const NavList = styled.ul`
   gap: 100px;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (max-width: 767px) {
+    gap: 20px;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -35,5 +39,13 @@ export const StyledNavLink = styled(NavLink)`
     background-color: ${({ theme }) => theme.colors.mainWhite};
     color: ${({ theme }) => theme.colors.hoverBlue};
     transform: scale(1.1);
+  }
+
+  @media only screen and (max-width: 767px) {
+    padding: 12px 14px;
+    font-size: 14px;
+    display: block;
+    box-sizing: border-box;
+    width: 90px;
   }
 `;

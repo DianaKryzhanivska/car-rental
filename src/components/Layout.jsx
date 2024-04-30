@@ -6,7 +6,6 @@ const Layout = () => {
   return (
     <>
       <NavBar />
-      <hr />
       <main>
         <Suspense fallback={null}>
           <Outlet />
