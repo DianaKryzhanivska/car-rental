@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { CloseBtn, ModalWindow, Overlay } from './Modal.styled';
-import closeIcon from '../../img/close.svg';
+import sprite from '../../img/sprite.svg';
 
 const Modal = ({ children, close }) => {
   useEffect(() => {
@@ -30,7 +30,9 @@ const Modal = ({ children, close }) => {
       <ModalWindow>
         {children}
         <CloseBtn type="button" onClick={handleCloseBtnClick}>
-          <img src={closeIcon} alt="close" />
+          <svg>
+            <use href={`${sprite}#close`} />
+          </svg>
         </CloseBtn>
       </ModalWindow>
     </Overlay>
