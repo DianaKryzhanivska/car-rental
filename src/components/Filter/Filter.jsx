@@ -4,6 +4,7 @@ import {
   BrandsWrapper,
   FilterSubtitle,
   FilterWrapper,
+  InputBox,
   InputFrom,
   InputTo,
   MileageWrapper,
@@ -109,7 +110,7 @@ const Filter = ({ onFilterChange }) => {
         </PriceWrapper>
         <MileageWrapper>
           <FilterSubtitle>Сar mileage / km</FilterSubtitle>
-          <div>
+          <InputBox>
             <InputFrom
               placeholder="From"
               value={minMileage}
@@ -120,7 +121,7 @@ const Filter = ({ onFilterChange }) => {
               value={maxMileage}
               onChange={e => setMaxMileage(e.target.value)}
             />
-          </div>
+          </InputBox>
         </MileageWrapper>
         <SearchBtn type="submit">Search</SearchBtn>
       </FilterWrapper>

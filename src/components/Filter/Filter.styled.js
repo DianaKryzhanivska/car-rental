@@ -7,6 +7,11 @@ export const FilterWrapper = styled.div`
   justify-content: center;
   gap: 18px;
   margin-bottom: 50px;
+
+  @media only screen and (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const FilterSubtitle = styled.p`
@@ -21,6 +26,10 @@ export const BrandsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 export const PriceWrapper = styled.div`
@@ -28,6 +37,10 @@ export const PriceWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 export const MileageWrapper = styled.div`
@@ -36,8 +49,18 @@ export const MileageWrapper = styled.div`
   gap: 8px;
 `;
 
+export const InputBox = styled.div`
+  display: flex;
+  flex: 1;
+
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+  }
+`;
+
 export const InputFrom = styled.input`
   max-width: 160px;
+  box-sizing: border-box;
   padding: 14px 24px;
   border: none;
   border-radius: 14px 0px 0px 14px;
@@ -48,10 +71,25 @@ export const InputFrom = styled.input`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11em;
+
+  @media only screen and (max-width: 1439px) {
+    width: 100px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    flex: 1;
+    width: auto;
+    max-width: 140px;
+  }
+
+  @media only screen and (max-width: 374px) {
+    max-width: 120px;
+  }
 `;
 
 export const InputTo = styled.input`
   max-width: 160px;
+  box-sizing: border-box;
   padding: 14px 24px;
   border: none;
   border-radius: 0px 14px 14px 0px;
@@ -61,6 +99,20 @@ export const InputTo = styled.input`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11em;
+
+  @media only screen and (max-width: 1439px) {
+    width: 100px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    flex: 1;
+    width: auto;
+    max-width: 140px;
+  }
+
+  @media only screen and (max-width: 374px) {
+    max-width: 120px;
+  }
 `;
 
 export const SearchBtn = styled.button`
