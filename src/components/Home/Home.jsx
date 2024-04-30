@@ -1,4 +1,3 @@
-import NavBar from 'components/NavBar/NavBar';
 import React from 'react';
 import mercedes from '../../img/mercedes.png';
 import { MainContainer } from 'styles/GlobalStyles';
@@ -20,7 +19,6 @@ const Home = () => {
   const isTabletOrDesktop = useMediaQuery({ query: '(min-width: 768px)' });
   return (
     <>
-      <NavBar />
       <MainContainer>
         <Title>
           Enjoy driving with <span>Car Rental</span>
